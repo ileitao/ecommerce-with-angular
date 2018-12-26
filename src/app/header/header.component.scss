@@ -1,0 +1,61 @@
+/* Color Palette */
+$primary: #f33959;
+
+mat-toolbar {
+	background: $primary;
+	display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+
+	&.mat-toolbar {
+		position: fixed;
+	  top: 0;
+	  right: 0;
+	  left: 0;
+	  z-index: 10;
+	  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+
+	  mat-toolbar-row {
+	  	padding: 0 16px 0 0;
+			margin: 0 auto;
+			min-height: 64px;
+
+			&.mat-toolbar-row {
+				height: 64px;
+				display: flex;
+				box-sizing: border-box;
+				width: 100%;
+				flex-direction: row;
+				align-items: center;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	button[mat-button] {		
+		
+		&.hamburger.mat-button {
+			height: 100%;
+	    margin: 0 8px 0 0;
+	    padding: 0;
+			color: inherit;
+	  	background: 0 0;
+	    height: 100%;
+	    margin: 0 8px 0 0;
+	    padding: 0;
+
+	   /*&.hamburger.mat-button:hover {
+			background: $primary-dark;
+	   }*/
+		}
+
+    mat-icon {
+    	color: white;
+    }
+	}
+
+	.logo {
+		font-weight: bold;
+	}
+}

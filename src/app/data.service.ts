@@ -9,11 +9,17 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts() {
-  	// @TODO
+  /**
+   * Get products from products.json
+   */
+  public getProducts() {
+  	return this.http.get('./assets/products.json');
   }
 
-  getCategories() {
-		// @TODO
+ 	/**
+   * Get categories from categories.json
+   */
+  public getCategories() {
+		return this.http.get('./assets/categories.json');
   }
 }
