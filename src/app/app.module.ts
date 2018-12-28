@@ -7,6 +7,8 @@ import { MatButtonModule }         from '@angular/material/button';
 import { MatIconModule }           from '@angular/material/icon';
 import { MatSidenavModule }        from '@angular/material/sidenav';
 import { MatToolbarModule }        from '@angular/material/toolbar';
+import { MatExpansionModule }      from '@angular/material/expansion';
+import { MatCardModule }           from '@angular/material/card';
 // Services
 import { SidenavService }          from './sidenav.service';
 
@@ -16,7 +18,7 @@ import { MenuComponent } 		       from './menu/menu.component';
 import { ProductComponent }        from './product/product.component';
 import { SearchResultComponent }   from './search-result/search-result.component';
 import { HeaderComponent }         from './header/header.component';
-import { ContentComponent } from './content/content.component';
+import { ContentComponent }        from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ContentComponent } from './content/content.component';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent]

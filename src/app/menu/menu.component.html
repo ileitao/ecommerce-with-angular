@@ -1,3 +1,52 @@
-<p *ngIf="categories">
-  CATEGORIAS
-</p>
+<div *ngIf="categories">
+	<mat-accordion *ngFor="let category of categories" class="level-1">
+		<div *ngIf="category.sublevels?.length > 0" class="has-sublevel">
+			<mat-expansion-panel>
+    		<mat-expansion-panel-header [collapsedHeight]="'30px'" [expandedHeight]="'30px'">
+					<mat-panel-title>
+						<a class="category-link">{{category.name}}</a>
+					</mat-panel-title>
+   			</mat-expansion-panel-header>
+				<!-- Sublevel #1 -->
+				<mat-accordion *ngFor="let sl of category.sublevels" class="level-2"> 
+					<div *ngIf="sl.sublevels?.length > 0"  class="has-sublevel">
+						<mat-expansion-panel>
+			    		<mat-expansion-panel-header [collapsedHeight]="'30px'" [expandedHeight]="'30px'">
+								<mat-panel-title>
+									<a class="category-link">{{sl.name}}</a>
+								</mat-panel-title>
+			   			</mat-expansion-panel-header>
+			   			<!-- Sublevel #2 -->
+			   			<mat-accordion *ngFor="let ssl of sl.sublevels" class="level-3">
+								<div *ngIf="ssl.sublevels?.length > 0"  class="has-sublevel">
+									<mat-expansion-panel>
+						    		<mat-expansion-panel-header [collapsedHeight]="'30px'" [expandedHeight]="'30px'">
+											<mat-panel-title>
+												<a class="category-link">{{ssl.name}}</a>
+											</mat-panel-title>
+						   			</mat-expansion-panel-header>
+						   			<!-- Sublevel #3 -->
+						   			<div *ngFor="let sssl of ssl.sublevels" class="level-4"  class="has-no-sublevel">
+											<a class="category-link" routerLink="/categories/{{sssl.id}}">{{sssl.name}}</a>
+						   			</div>
+						   		</mat-expansion-panel>
+								</div>
+			   				<div *ngIf="!ssl.sublevels?.length > 0"  class="has-no-sublevel">
+									<a class="category-link" routerLink="/categories/{{ssl.id}}">{{ssl.name}}</a>
+								</div>	
+			   			</mat-accordion>
+			   		</mat-expansion-panel>
+					</div>	
+					<div *ngIf="!sl.sublevels?.length > 0"  class="has-no-sublevel">
+						<a class="category-link" routerLink="/categories/{{sl.id}}">{{sl.name}}</a>
+					</div>	
+				</mat-accordion>
+			</mat-expansion-panel>	
+		</div>
+		<div *ngIf="!category.sublevels?.length > 0" class="has-no-sublevel">
+			<a class="category-link" routerLink="/categories/{{category.id}}">{{category.name}}</a>
+		</div>	
+	</mat-accordion>
+</div>
+
+	

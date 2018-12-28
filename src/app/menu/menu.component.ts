@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService }       from '../data.service';
+import { Category }          from '../category';
 
 @Component({
   selector: 'app-menu',
@@ -8,13 +9,17 @@ import { DataService }       from '../data.service';
 })
 export class MenuComponent implements OnInit {
 
-	categories: Object;
+	categories: Category[] = [];
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
   	this.data.getCategories().subscribe(data => {
-  		this.categories = data;
+      let categoriesArray = data["categories"];
+      for(let obj of categoriesArray) { 
+        let sl = obj["sublevels"] || [];
+        this.categories.push(new Category(obj["id"], obj["name"], sl));
+      }
   	})
   }
 }

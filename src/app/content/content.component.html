@@ -1,8 +1,8 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer mode="side" #drawer class="example-sidenav">
-		<!-- Categorias -->
+<mat-drawer-container class="mat-drawer-container" autosize>
+  <mat-drawer mode="side" #drawer class="mat-drawer-sidenav">
+		<app-menu></app-menu>
   </mat-drawer>
-  <mat-drawer-content class="example-sidenav-content">
+  <mat-drawer-content class="mat-drawer-sidenav-content">
   	<router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

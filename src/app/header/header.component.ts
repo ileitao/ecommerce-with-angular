@@ -8,7 +8,7 @@ import { SidenavService }    from '../sidenav.service';
 })
 export class HeaderComponent implements OnInit {
 
-	appTitle: string = 'El Baraton';
+	appTitle: string = 'El Baratón';
 
   toggleActive: boolean = false;
 

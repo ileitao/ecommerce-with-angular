@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute }    from '@angular/router';
 import { DataService }       from '../data.service';
+import { Product }           from '../product';
 
 @Component({
   selector: 'app-search-result',
@@ -8,15 +10,30 @@ import { DataService }       from '../data.service';
 })
 export class SearchResultComponent implements OnInit {
 
-	products: Object;
+	products: Product[] = [];
 	
-  constructor(private data: DataService) { }
+  constructor(private route: ActivatedRoute, private data: DataService)  {  }
 
   ngOnInit() {
-  	this.data.getProducts().subscribe(data => {
-  		this.products = data;
-  		console.log(data);
-  	})
-  }
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id === 0) {
+      this.data.getProducts().subscribe(data => {
+        let productsArray = data["products"];
+        for(let obj of productsArray) { 
+          this.products.push(new Product(obj["quantity"], obj["price"], obj["available"], obj["sublevel_id"], obj["name"], obj["id"]));
+        }
 
+        console.log(this.products);
+      });
+    } else {
+      this.data.getProductsById(id).subscribe(data => {
+        console.log(data);
+        for(let obj of data) { 
+          this.products.push(new Product(obj["quantity"], obj["price"], obj["available"], obj["sublevel_id"], obj["name"], obj["id"]));
+        }
+
+        console.log(this.products);
+      });
+    }
+  }
 }

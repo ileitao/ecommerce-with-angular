@@ -1,0 +1,50 @@
+mat-accordion.level-1 {
+
+	.mat-expansion-panel {
+		background-color: #fafafa;
+		margin: 0 0 8px 0;
+		box-shadow: none;
+
+		mat-expansion-panel-header {
+			font-family: 'Montserrat';
+		}
+	}
+
+	.mat-accordion .mat-expansion-panel:first-of-type {
+	  border-top-right-radius: 0;
+	  border-top-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	  border-bottom-left-radius: 0;
+	}
+
+	.mat-accordion .mat-expansion-panel:last-of-type {
+	  border-top-right-radius: 0;
+	  border-top-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	  border-bottom-left-radius: 0;
+	}
+
+	/deep/ .mat-expansion-panel-content > .mat-expansion-panel-body { 
+		font-family: 'Montserrat';
+		margin: 0 0 0 12px;
+		padding: 0 0 0 4px;
+
+		div {	
+			&.has-no-sublevel {
+				margin: 0 0 6px 24px;
+			}
+		}
+	}
+}
+
+a.category-link {
+	color: rgba(0,0,0,.87);
+
+	&:hover {
+		color: darken(#f33959, 5%);
+	}
+}
+
+
+
+
