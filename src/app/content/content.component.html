@@ -1,6 +1,7 @@
-<mat-drawer-container class="mat-drawer-container" autosize>
-  <mat-drawer mode="side" #drawer class="mat-drawer-sidenav">
+<mat-drawer-container class="mat-drawer-container" autosize [hasBackdrop]="True">
+  <mat-drawer mode="side" #drawer class="mat-drawer-sidenav" [mode]="Over">
 		<app-menu></app-menu>
+		<app-search-filter></app-search-filter>
   </mat-drawer>
   <mat-drawer-content class="mat-drawer-sidenav-content">
   	<router-outlet></router-outlet>

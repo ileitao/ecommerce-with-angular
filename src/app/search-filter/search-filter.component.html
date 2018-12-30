@@ -1,0 +1,92 @@
+<div class="filters">
+	<mat-grid-list cols="4" rowHeight="40px">
+		<!-- Availability Row -->
+	  <mat-grid-tile [colspan]="3"
+      						 [rowspan]="1">
+	  		<div class="tile-description">Disponibilidad</div>
+	  </mat-grid-tile>
+	  <mat-grid-tile [colspan]="1"
+      						 [rowspan]="1">
+		    <mat-slide-toggle class="example-margin"
+									        [color]="color"
+									        [checked]="checked"
+									        [disabled]="disabled"
+									        [ngModel]="filterByAvailability">
+		    </mat-slide-toggle>
+	  </mat-grid-tile>
+	</mat-grid-list>
+	<mat-grid-list cols="8" rowHeight="52px">
+	  <!-- Price Range Row -->
+	  <mat-grid-tile [colspan]="8"
+      						 [rowspan]="1">
+	  		<div class="tile-description">Rango de Precios</div>
+	  </mat-grid-tile>
+	  <mat-grid-tile [colspan]="4"
+      						 [rowspan]="1"
+      						 class="min-max-range">
+		    <p>
+				  <mat-form-field appearance="fill" [color]="accent">
+				    <mat-label>Mínimo</mat-label>
+				    <span matPrefix>$&nbsp;</span>
+				    <input matInput type="number" maxlength="10" [ngModel]="filterByPriceMin">
+				  </mat-form-field>
+				</p>
+	  </mat-grid-tile>
+	  <mat-grid-tile [colspan]="4"
+      						 [rowspan]="1"
+      						 class="min-max-range">
+		    <p>
+				  <mat-form-field appearance="fill" [color]="accent">
+				    <mat-label>Máximo</mat-label>
+				    <span matPrefix>$&nbsp;</span>
+				    <input matInput type="number" maxlength="10" [ngModel]="filterByPriceMax">
+				  </mat-form-field>
+				</p>
+	  </mat-grid-tile>
+	</mat-grid-list>
+	<mat-grid-list cols="8" rowHeight="52px">
+	  <!-- Stock Amount Row -->
+	  <mat-grid-tile [colspan]="8"
+      						 [rowspan]="1">
+	  		<div class="tile-description">Cantidad en Stock</div>
+	  </mat-grid-tile>
+	  <mat-grid-tile [colspan]="8"
+      						 [rowspan]="1"
+      						 class="regular">
+		    <p>
+				  <mat-form-field appearance="fill" [color]="accent">
+				    <mat-label>Cantidad</mat-label>
+				    <input matInput type="number" maxlength="10" [ngModel]="filterByPriceMin">
+				  </mat-form-field>
+				</p>
+	  </mat-grid-tile>
+	</mat-grid-list>
+	<mat-grid-list cols="4" rowHeight="40px">
+		<!-- Sort criteria Row -->
+		<mat-grid-tile [colspan]="4"
+      						 [rowspan]="1">
+			<div class="tile-description">Ordenar publicaciones</div>
+		</mat-grid-tile>
+		<mat-grid-tile [colspan]="4"
+      						 [rowspan]="1"
+      						 class="checkbox-container first-checkbox">
+		  <div class="filter">
+				<mat-checkbox [(ngModel)]="sortByAvailability">Disponibilidad</mat-checkbox>
+			</div>
+		</mat-grid-tile>
+		<mat-grid-tile [colspan]="4"
+      						 [rowspan]="1"
+      						 class="checkbox-container second-checkbox">	
+			<div class="filter">
+				<mat-checkbox [(ngModel)]="sortByPrice">Precio</mat-checkbox>
+			</div>
+		</mat-grid-tile>
+		<mat-grid-tile [colspan]="4"
+      						 [rowspan]="1"
+      						 class="checkbox-container third-checkbox">	
+			<div class="filter">
+				<mat-checkbox [(ngModel)]="sortByAmount">Cantidad</mat-checkbox>
+			</div>
+		</mat-grid-tile>	
+	</mat-grid-list>
+</div>

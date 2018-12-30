@@ -26,18 +26,18 @@
 											</mat-panel-title>
 						   			</mat-expansion-panel-header>
 						   			<!-- Sublevel #3 -->
-						   			<div *ngFor="let sssl of ssl.sublevels" class="level-4"  class="has-no-sublevel">
+						   			<div *ngFor="let sssl of ssl.sublevels" class="level-4" class="has-no-sublevel">
 											<a class="category-link" routerLink="/categories/{{sssl.id}}">{{sssl.name}}</a>
 						   			</div>
 						   		</mat-expansion-panel>
 								</div>
-			   				<div *ngIf="!ssl.sublevels?.length > 0"  class="has-no-sublevel">
+			   				<div *ngIf="!ssl.sublevels?.length > 0" class="has-no-sublevel">
 									<a class="category-link" routerLink="/categories/{{ssl.id}}">{{ssl.name}}</a>
 								</div>	
 			   			</mat-accordion>
 			   		</mat-expansion-panel>
 					</div>	
-					<div *ngIf="!sl.sublevels?.length > 0"  class="has-no-sublevel">
+					<div *ngIf="!sl.sublevels?.length > 0" class="has-no-sublevel">
 						<a class="category-link" routerLink="/categories/{{sl.id}}">{{sl.name}}</a>
 					</div>	
 				</mat-accordion>
@@ -45,7 +45,8 @@
 		</div>
 		<div *ngIf="!category.sublevels?.length > 0" class="has-no-sublevel">
 			<a class="category-link" routerLink="/categories/{{category.id}}">{{category.name}}</a>
-		</div>	
+		</div>
+	<mat-divider></mat-divider>	
 	</mat-accordion>
 </div>
 

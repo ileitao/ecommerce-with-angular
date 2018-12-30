@@ -22,17 +22,12 @@ export class SearchResultComponent implements OnInit {
         for(let obj of productsArray) { 
           this.products.push(new Product(obj["quantity"], obj["price"], obj["available"], obj["sublevel_id"], obj["name"], obj["id"]));
         }
-
-        console.log(this.products);
       });
     } else {
       this.data.getProductsById(id).subscribe(data => {
-        console.log(data);
         for(let obj of data) { 
           this.products.push(new Product(obj["quantity"], obj["price"], obj["available"], obj["sublevel_id"], obj["name"], obj["id"]));
         }
-
-        console.log(this.products);
       });
     }
   }

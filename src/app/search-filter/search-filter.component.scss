@@ -1,0 +1,47 @@
+div.filters {
+	font-size: 13px;
+  font-weight: 600;
+}
+
+div.tile-description {
+	position: absolute;
+	left: 24px;
+}
+
+.min-max-range {
+	/deep/ .mat-form-field-flex > .mat-form-field-infix {
+		width: 60px;
+	}
+}
+
+.regular {
+	/deep/ .mat-form-field-flex > .mat-form-field-infix {
+		width: 210px;
+	}
+}
+
+.mat-grid-tile.checkbox-container {
+	height: 22px!important;
+	font-size: 12px;
+  font-weight: 500;
+
+  &.first-checkbox {
+		top: 44px!important;
+  }
+  
+  &.second-checkbox {
+		top: 66px!important;
+  }
+  
+  &.third-checkbox {
+		top: 88px!important;
+  }
+}
+.mat-grid-tile.checkbox-container /deep/ .mat-figure{
+  justify-content: left;
+  margin: 0 0 0 26px;
+}
+
+.mat-checkbox {
+	font-family: 'Montserrat';
+}
