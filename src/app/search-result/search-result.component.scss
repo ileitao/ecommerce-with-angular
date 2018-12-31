@@ -1,8 +1,17 @@
-.example-card {
-  max-width: 400px;
+/deep/ app-search-result {
+	width: 60%;
 }
 
-.example-header-image {
+div.products {
+}
+
+.card {
+	width: 320px;
+  max-width: 320px;
+  margin: 10px;
+}
+
+.header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }

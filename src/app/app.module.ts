@@ -1,8 +1,10 @@
-import { BrowserModule } 		       from '@angular/platform-browser';
-import { NgModule } 				       from '@angular/core';
+import { BrowserModule } 		   from '@angular/platform-browser';
+import { NgModule } 			   from '@angular/core';
 import { HttpClientModule}         from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule }             from '@angular/forms';
+// Angular FlexLayout
+import { FlexLayoutModule }         from '@angular/flex-layout';
 // Angular Material
 import { MatButtonModule }         from '@angular/material/button';
 import { MatIconModule }           from '@angular/material/icon';
@@ -18,10 +20,11 @@ import { MatInputModule }          from '@angular/material';
 import { MatCheckboxModule }       from '@angular/material/checkbox';
 // Services
 import { SidenavService }          from './sidenav.service';
+import { EventBrokerService }      from './EventBrokerService';
 
 import { AppRoutingModule }        from './app-routing.module';
-import { AppComponent } 		       from './app.component';
-import { MenuComponent } 		       from './menu/menu.component';
+import { AppComponent } 		   from './app.component';
+import { MenuComponent } 		   from './menu/menu.component';
 import { ProductComponent }        from './product/product.component';
 import { SearchResultComponent }   from './search-result/search-result.component';
 import { HeaderComponent }         from './header/header.component';
@@ -44,6 +47,7 @@ import { SearchFilterComponent }   from './search-filter/search-filter.component
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
@@ -57,7 +61,7 @@ import { SearchFilterComponent }   from './search-filter/search-filter.component
     MatInputModule,
     MatCheckboxModule
   ],
-  providers: [SidenavService],
+  providers: [SidenavService, EventBrokerService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

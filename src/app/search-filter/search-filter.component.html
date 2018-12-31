@@ -8,10 +8,9 @@
 	  <mat-grid-tile [colspan]="1"
       						 [rowspan]="1">
 		    <mat-slide-toggle class="example-margin"
-									        [color]="color"
-									        [checked]="checked"
-									        [disabled]="disabled"
-									        [ngModel]="filterByAvailability">
+									        [checked]="filterByAvailability"
+									        [(ngModel)]="filterByAvailability"
+									        (click)="filterByAvailabilityCmd()">
 		    </mat-slide-toggle>
 	  </mat-grid-tile>
 	</mat-grid-list>
@@ -28,7 +27,7 @@
 				  <mat-form-field appearance="fill" [color]="accent">
 				    <mat-label>Mínimo</mat-label>
 				    <span matPrefix>$&nbsp;</span>
-				    <input matInput type="number" maxlength="10" [ngModel]="filterByPriceMin">
+				    <input matInput type="number" maxlength="10" [(ngModel)]="filterByPriceMin">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -39,7 +38,7 @@
 				  <mat-form-field appearance="fill" [color]="accent">
 				    <mat-label>Máximo</mat-label>
 				    <span matPrefix>$&nbsp;</span>
-				    <input matInput type="number" maxlength="10" [ngModel]="filterByPriceMax">
+				    <input matInput type="number" maxlength="10" [(ngModel)]="filterByPriceMax">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -56,7 +55,7 @@
 		    <p>
 				  <mat-form-field appearance="fill" [color]="accent">
 				    <mat-label>Cantidad</mat-label>
-				    <input matInput type="number" maxlength="10" [ngModel]="filterByPriceMin">
+				    <input matInput type="number" maxlength="10" [(ngModel)]="filterByPriceMin">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>

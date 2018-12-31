@@ -1,6 +1,5 @@
 mat-drawer {
-  top: 64px;
-  position: fixed;
+  top: 64px;  
   bottom: 0;
   left: 0;
   padding: 0;
@@ -11,10 +10,13 @@ mat-drawer {
 
 mat-drawer-content {
   top: 64px;
+  position: fixed;
   bottom: 0;
   left: 0;
   padding: 0;
   min-width: 280px;
+  align-items: normal!important;
+  padding: 48px 0;
 }
 
 .mat-drawer-container {

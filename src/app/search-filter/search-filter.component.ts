@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router';
+import { Component, OnInit }   from '@angular/core';
+import { Router }              from '@angular/router';
+import { EventBrokerService }  from '../EventBrokerService';
 
 @Component({
   selector: 'app-search-filter',
@@ -9,23 +10,15 @@ import { Router }            from '@angular/router';
 export class SearchFilterComponent implements OnInit {
 
 	filterByAvailability: boolean = false;
-
 	filterByPrice: boolean = false;
-
-	filterByPriceMin: number;
-
-	filterByPriceMax: number;
-
-	filterByStockAmount: number;
-
   sortByAvailability: boolean = false;
-
   sortByPrice: boolean = false;
-
   sortByAmount: boolean = false;
+  filterByPriceMin: number;
+  filterByPriceMax: number;
+  filterByStockAmount: number;
 
-  /*constructor(private router: Router) {}*/
-  constructor() { }
+  constructor(private eventBroker: EventBrokerService) { }
   
   ngOnInit() {
     /*this.router.events.subscribe(val => {
@@ -33,14 +26,8 @@ export class SearchFilterComponent implements OnInit {
     });*/
   }
 
-  /*public resetFilters(): void {
-    this.filterByAvailability = false;
-    this.filterByPrice = false;
-    this.filterByPriceMin = 0;
-    this.filterByPriceMax = 0;
-    this.filterByStockAmount = 0;
-    this.sortByAvailability = false;
-    this.sortByPrice = false;
-    this.sortByAmount = false;
-  }*/
+  filterByAvailabilityCmd() {
+    console.log();
+    this.eventBroker.emit<boolean>('filterByAvailabilityEvent', !this.filterByAvailability);
+  }
 }
