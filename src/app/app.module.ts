@@ -20,7 +20,7 @@ import { MatInputModule }          from '@angular/material';
 import { MatCheckboxModule }       from '@angular/material/checkbox';
 // Services
 import { SidenavService }          from './sidenav.service';
-import { EventBrokerService }      from './EventBrokerService';
+import { FilterService }           from './filter.service'
 
 import { AppRoutingModule }        from './app-routing.module';
 import { AppComponent } 		   from './app.component';
@@ -61,7 +61,7 @@ import { SearchFilterComponent }   from './search-filter/search-filter.component
     MatInputModule,
     MatCheckboxModule
   ],
-  providers: [SidenavService, EventBrokerService],
+  providers: [SidenavService, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
