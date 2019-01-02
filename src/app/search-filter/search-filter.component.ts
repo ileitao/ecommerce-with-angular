@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router }                       from '@angular/router';
 import { FilterService }                from '../filter.service';
+import { Subscription }                 from 'rxjs';
 
 @Component({
   selector: 'app-search-filter',
@@ -8,15 +9,20 @@ import { FilterService }                from '../filter.service';
   styleUrls: ['./search-filter.component.scss']
 })
 export class SearchFilterComponent implements OnInit {
-  filterByPriceMin: number;
-  filterByPriceMax: number;
-  filterByStockAmount: number;
+  filterByPriceMin: number = null;
+  filterByPriceMax: number = null;
+  filterByStockAmount: number = null;
 	filterByAvailability: boolean = false;  
   sortByAvailability: boolean = false;
   sortByPrice: boolean = false;
   sortByStockAmount: boolean = false;
+  subscription: Subscription;
 
   constructor(private filterService: FilterService) { 
+    // Filters
+    this.subscription = filterService.resetFilters$.subscribe(() => {
+      return this.resetFilters();
+    });
   }
   
   ngOnInit() {
@@ -48,5 +54,15 @@ export class SearchFilterComponent implements OnInit {
 
   sortByAvailabilityCmd() {
     this.filterService.sortByAvailability(!this.sortByAvailability);
+  }
+
+  resetFilters() {
+    this.filterByPriceMin = null;
+    this.filterByPriceMax = null;
+    this.filterByStockAmount = null;
+    this.filterByAvailability = false;
+    this.sortByAvailability = false;
+    this.sortByPrice = false;
+    this.sortByStockAmount = false;
   }
 }

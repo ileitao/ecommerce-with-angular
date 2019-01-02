@@ -56,6 +56,7 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
+    this.filterService.resetFilters();
     if (id === 0) {
       this.data.getProducts().subscribe(data => {
         let productsArray = data["products"];

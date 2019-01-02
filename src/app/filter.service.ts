@@ -14,6 +14,7 @@ export class FilterService {
   private sortByPriceSrc = new Subject<boolean>();
   private sortByAvailabilitySrc = new Subject<boolean>();
   private sortByStockAmountSrc = new Subject<boolean>();
+  private resetFiltersSrc = new Subject();
  
   // Observable boolean streams
   availabilityFilter$ = this.filterByAvailabilitySrc.asObservable();
@@ -23,6 +24,7 @@ export class FilterService {
   priceSorter$ = this.sortByPriceSrc.asObservable();
   availabilitySorter$ = this.sortByAvailabilitySrc.asObservable();
   stockAmountSorter$ = this.sortByStockAmountSrc.asObservable();
+  resetFilters$ = this.resetFiltersSrc.asObservable();
  
   // Service message commands
   filterByAvailability(doAction: boolean) {
@@ -51,6 +53,10 @@ export class FilterService {
 
   sortByStockAmount(doAction: boolean) {
     this.sortByStockAmountSrc.next(doAction);
+  }
+
+  resetFilters() {
+  	this.resetFiltersSrc.next();
   }
 
   constructor() { }
