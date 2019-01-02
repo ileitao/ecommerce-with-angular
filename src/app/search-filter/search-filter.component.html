@@ -24,10 +24,10 @@
       						 [rowspan]="1"
       						 class="min-max-range">
 		    <p>
-				  <mat-form-field appearance="fill" [color]="accent">
+				  <mat-form-field appearance="fill">
 				    <mat-label>Mínimo</mat-label>
 				    <span matPrefix>$&nbsp;</span>
-				    <input #inputMin matInput type="number" maxlength="10" [(ngModel)]="filterByPriceMin" (keyup.enter)="filterByPriceMinCmd(inputMin.value)">
+				    <input #inputMin matInput type="number" maxlength="10" (keyup.enter)="filterByPriceMinCmd(inputMin.value)">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -35,10 +35,10 @@
       						 [rowspan]="1"
       						 class="min-max-range">
 		    <p>
-				  <mat-form-field appearance="fill" [color]="accent">
+				  <mat-form-field appearance="fill">
 				    <mat-label>Máximo</mat-label>
 				    <span matPrefix>$&nbsp;</span>
-				    <input #inputMax matInput type="number" maxlength="10" [(ngModel)]="filterByPriceMax" (keyup.enter)="filterByPriceMaxCmd(inputMax.value)">
+				    <input #inputMax matInput type="number" maxlength="10" (keyup.enter)="filterByPriceMaxCmd(inputMax.value)">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -53,9 +53,9 @@
       						 [rowspan]="1"
       						 class="regular">
 		    <p>
-				  <mat-form-field appearance="fill" [color]="accent">
+				  <mat-form-field appearance="fill">
 				    <mat-label>Cantidad</mat-label>
-				    <input #inputStockAmount matInput type="number" maxlength="10" [(ngModel)]="filterByStockAmount" (keyup.enter)="filterByStockAmountCmd(inputStockAmount.value)">
+				    <input #inputStockAmount matInput type="number" maxlength="10" (keyup.enter)="filterByStockAmountCmd(inputStockAmount.value)">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -70,21 +70,21 @@
       						 [rowspan]="1"
       						 class="checkbox-container first-checkbox">
 		  <div class="filter">
-				<mat-checkbox [(ngModel)]="sortByAvailability">Disponibilidad</mat-checkbox>
+				<mat-checkbox [(ngModel)]="sortByAvailability" (click)="sortByAvailabilityCmd()">Disponibilidad</mat-checkbox>
 			</div>
 		</mat-grid-tile>
 		<mat-grid-tile [colspan]="4"
       						 [rowspan]="1"
       						 class="checkbox-container second-checkbox">	
 			<div class="filter">
-				<mat-checkbox [(ngModel)]="sortByPrice">Precio</mat-checkbox>
+				<mat-checkbox [(ngModel)]="sortByPrice" (click)="sortByPriceCmd()">Precio</mat-checkbox>
 			</div>
 		</mat-grid-tile>
 		<mat-grid-tile [colspan]="4"
       						 [rowspan]="1"
       						 class="checkbox-container third-checkbox">	
 			<div class="filter">
-				<mat-checkbox [(ngModel)]="sortByAmount">Cantidad</mat-checkbox>
+				<mat-checkbox [(ngModel)]="sortByStockAmount" (click)="sortByStockAmountCmd()">Cantidad</mat-checkbox>
 			</div>
 		</mat-grid-tile>	
 	</mat-grid-list>

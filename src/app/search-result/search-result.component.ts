@@ -29,18 +29,29 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
   subscription: Subscription;
 	
   constructor(private route: ActivatedRoute, private data: DataService, private filterService: FilterService)  {
+    // Filters
     this.subscription = filterService.availabilityFilter$.subscribe(value => {
       return this.onFilterByAvailability(value)
-    })
+    });
     this.subscription = filterService.priceMinFilter$.subscribe(value => {
       return this.onFilterByPriceMin(value)
-    })
+    });
     this.subscription = filterService.priceMaxFilter$.subscribe(value => {
       return this.onFilterByPriceMax(value)
-    })
+    });
     this.subscription = filterService.stockAmountFilter$.subscribe(value => {
       return this.onFilterByStockAmount(value)
-    })
+    });
+    // Sorters
+    this.subscription = filterService.availabilitySorter$.subscribe(value => {
+      return this.onSortByAvailability(value)
+    });
+    this.subscription = filterService.priceSorter$.subscribe(value => {
+      return this.onSortByPrice(value)
+    });
+    this.subscription = filterService.stockAmountSorter$.subscribe(value => {
+      return this.onSortByStockAmount(value)
+    });
   }
 
   ngOnInit() {
@@ -63,6 +74,7 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
     }
   }
 
+  // FILTERS
   onFilterByAvailability(value: boolean) {
     if (value) {
       this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
@@ -96,6 +108,19 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
         return item.quantity > value;
       })
     }
+  }
+
+  // SORTERS
+  onSortByAvailability(value: boolean) {
+
+  }
+
+  onSortByPrice(value: boolean) {
+
+  }
+
+  onSortByStockAmount(value: boolean) {
+
   }
 
   private assignCopy(): void {

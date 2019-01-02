@@ -9,13 +9,10 @@ import { FilterService }                from '../filter.service';
 })
 export class SearchFilterComponent implements OnInit {
 
-	filterByAvailability: boolean = false;
+	filterByAvailability: boolean = false;  
   sortByAvailability: boolean = false;
   sortByPrice: boolean = false;
-  sortByAmount: boolean = false;
-  filterByPriceMin: number;
-  filterByPriceMax: number;
-  filterByStockAmount: number;
+  sortByStockAmount: boolean = false;
 
   constructor(private filterService: FilterService) { 
   }
@@ -30,15 +27,27 @@ export class SearchFilterComponent implements OnInit {
     this.filterService.filterByAvailability(!this.filterByAvailability);
   }
 
-  filterByPriceMinCmd() {
-    this.filterService.filterByPriceMin(this.filterByPriceMin);
+  filterByPriceMinCmd(val: number) {
+    this.filterService.filterByPriceMin(val);
   }
 
-  filterByPriceMaxCmd() {
-    this.filterService.filterByPriceMax(this.filterByPriceMax);
+  filterByPriceMaxCmd(val: number) {
+    this.filterService.filterByPriceMax(val);
   }
 
-  filterByStockAmountCmd() {
-    this.filterService.filterByStockAmount(this.filterByStockAmount);
+  filterByStockAmountCmd(val: number) {
+    this.filterService.filterByStockAmount(val);
+  }
+
+  sortByPriceCmd() {
+    this.filterService.sortByPrice(!this.sortByPrice);
+  }
+
+   sortByStockAmountCmd() {
+    this.filterService.sortByPrice(!this.sortByStockAmount);
+  }
+
+   sortByAvailabilityCmd() {
+    this.filterService.sortByPrice(!this.sortByAvailability);
   }
 }

@@ -11,12 +11,18 @@ export class FilterService {
   private filterByPriceMinSrc = new Subject<number>();
   private filterByPriceMaxSrc = new Subject<number>();
   private filterByStockAmountSrc = new Subject<number>();
+  private sortByPriceSrc = new Subject<boolean>();
+  private sortByAvailabilitySrc = new Subject<boolean>();
+  private sortByStockAmountSrc = new Subject<boolean>();
  
   // Observable boolean streams
   availabilityFilter$ = this.filterByAvailabilitySrc.asObservable();
   priceMinFilter$ = this.filterByPriceMinSrc.asObservable();
   priceMaxFilter$ = this.filterByPriceMaxSrc.asObservable();
   stockAmountFilter$ = this.filterByStockAmountSrc.asObservable();
+  priceSorter$ = this.sortByPriceSrc.asObservable();
+  availabilitySorter$ = this.sortByAvailabilitySrc.asObservable();
+  stockAmountSorter$ = this.sortByStockAmountSrc.asObservable();
  
   // Service message commands
   filterByAvailability(doAction: boolean) {
@@ -33,6 +39,19 @@ export class FilterService {
 
   filterByStockAmount(doAction: number) {
     this.filterByStockAmountSrc.next(doAction);
+  }
+
+  sortByPrice(doAction: boolean) {
+    this.sortByPriceSrc.next(doAction);
+  }
+
+
+  sortByAvailability(doAction: boolean) {
+    this.sortByAvailabilitySrc.next(doAction);
+  }
+
+  sortByStockAmount(doAction: boolean) {
+    this.sortByStockAmountSrc.next(doAction);
   }
 
   constructor() { }
