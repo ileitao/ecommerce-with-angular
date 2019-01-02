@@ -27,7 +27,7 @@
 				  <mat-form-field appearance="fill">
 				    <mat-label>Mínimo</mat-label>
 				    <span matPrefix>$&nbsp;</span>
-				    <input #inputMin matInput type="number" maxlength="10" (keyup.enter)="filterByPriceMinCmd(inputMin.value)">
+				    <input #inputMin matInput type="number" maxlength="10" (keyup.enter)="filterByPriceMinCmd(inputMin.value)" [(ngModel)]="filterByPriceMin">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -38,7 +38,7 @@
 				  <mat-form-field appearance="fill">
 				    <mat-label>Máximo</mat-label>
 				    <span matPrefix>$&nbsp;</span>
-				    <input #inputMax matInput type="number" maxlength="10" (keyup.enter)="filterByPriceMaxCmd(inputMax.value)">
+				    <input #inputMax matInput type="number" maxlength="10" (keyup.enter)="filterByPriceMaxCmd(inputMax.value)" [(ngModel)]="filterByPriceMax">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>
@@ -55,7 +55,7 @@
 		    <p>
 				  <mat-form-field appearance="fill">
 				    <mat-label>Cantidad</mat-label>
-				    <input #inputStockAmount matInput type="number" maxlength="10" (keyup.enter)="filterByStockAmountCmd(inputStockAmount.value)">
+				    <input #inputStockAmount matInput type="number" maxlength="10" (keyup.enter)="filterByStockAmountCmd(inputStockAmount.value)" [(ngModel)]="filterByStockAmount">
 				  </mat-form-field>
 				</p>
 	  </mat-grid-tile>

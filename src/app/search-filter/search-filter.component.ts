@@ -8,7 +8,9 @@ import { FilterService }                from '../filter.service';
   styleUrls: ['./search-filter.component.scss']
 })
 export class SearchFilterComponent implements OnInit {
-
+  filterByPriceMin: number;
+  filterByPriceMax: number;
+  filterByStockAmount: number;
 	filterByAvailability: boolean = false;  
   sortByAvailability: boolean = false;
   sortByPrice: boolean = false;
@@ -18,9 +20,6 @@ export class SearchFilterComponent implements OnInit {
   }
   
   ngOnInit() {
-    /*this.router.events.subscribe(val => {
-      this.resetFilters();
-    });*/
   }
 
   filterByAvailabilityCmd() {

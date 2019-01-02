@@ -117,10 +117,10 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   onSortByPrice(value: boolean) {
     if (value) {
-      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => Number(a.price.replace(/[^0-9.-]+/g,"")) - Number(b.price.replace(/[^0-9.-]+/g,""));
+      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => Number(a.price.replace(/[^0-9.-]+/g,"")) - Number(b.price.replace(/[^0-9.-]+/g,""))));
       console.log(this.filteredProducts)
     } else {
-      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => Number(b.price.replace(/[^0-9.-]+/g,"")) - Number(a.price.replace(/[^0-9.-]+/g,""));
+      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => Number(b.price.replace(/[^0-9.-]+/g,"")) - Number(a.price.replace(/[^0-9.-]+/g,""))));
           console.log(this.filteredProducts)
     }
   }
