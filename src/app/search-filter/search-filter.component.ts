@@ -43,11 +43,11 @@ export class SearchFilterComponent implements OnInit {
     this.filterService.sortByPrice(!this.sortByPrice);
   }
 
-   sortByStockAmountCmd() {
-    this.filterService.sortByPrice(!this.sortByStockAmount);
+  sortByStockAmountCmd() {
+    this.filterService.sortByStockAmount(!this.sortByStockAmount);
   }
 
-   sortByAvailabilityCmd() {
-    this.filterService.sortByPrice(!this.sortByAvailability);
+  sortByAvailabilityCmd() {
+    this.filterService.sortByAvailability(!this.sortByAvailability);
   }
 }

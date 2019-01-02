@@ -45,7 +45,6 @@ export class FilterService {
     this.sortByPriceSrc.next(doAction);
   }
 
-
   sortByAvailability(doAction: boolean) {
     this.sortByAvailabilitySrc.next(doAction);
   }

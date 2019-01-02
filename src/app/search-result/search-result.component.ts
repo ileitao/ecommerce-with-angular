@@ -104,7 +104,6 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
   onFilterByStockAmount(value: number) {
     if (value > 0) {
       this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
-        console.log(item.quantity)
         return item.quantity > value;
       })
     }
@@ -112,15 +111,28 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   // SORTERS
   onSortByAvailability(value: boolean) {
-
+    this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => a.available === value ? 1 : -1));
+    console.log(this.filteredProducts)
   }
 
   onSortByPrice(value: boolean) {
-
+    if (value) {
+      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => Number(a.price.replace(/[^0-9.-]+/g,"")) - Number(b.price.replace(/[^0-9.-]+/g,""));
+      console.log(this.filteredProducts)
+    } else {
+      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => Number(b.price.replace(/[^0-9.-]+/g,"")) - Number(a.price.replace(/[^0-9.-]+/g,""));
+          console.log(this.filteredProducts)
+    }
   }
 
   onSortByStockAmount(value: boolean) {
-
+    if (value) {
+      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => a.quantity - b.quantity));
+      console.log(this.filteredProducts)
+    } else {
+      this.filteredProducts = Object.assign([], this.filteredProducts.sort((a, b) => b.quantity - a.quantity));
+      console.log(this.filteredProducts)
+    }
   }
 
   private assignCopy(): void {

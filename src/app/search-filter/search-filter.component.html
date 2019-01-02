@@ -70,21 +70,21 @@
       						 [rowspan]="1"
       						 class="checkbox-container first-checkbox">
 		  <div class="filter">
-				<mat-checkbox [(ngModel)]="sortByAvailability" (click)="sortByAvailabilityCmd()">Disponibilidad</mat-checkbox>
+				<mat-checkbox [(ngModel)]="sortByAvailability" (change)="sortByAvailabilityCmd()">Disponibilidad</mat-checkbox>
 			</div>
 		</mat-grid-tile>
 		<mat-grid-tile [colspan]="4"
       						 [rowspan]="1"
       						 class="checkbox-container second-checkbox">	
 			<div class="filter">
-				<mat-checkbox [(ngModel)]="sortByPrice" (click)="sortByPriceCmd()">Precio</mat-checkbox>
+				<mat-checkbox [(ngModel)]="sortByPrice" (change)="sortByPriceCmd()">Precio</mat-checkbox>
 			</div>
 		</mat-grid-tile>
 		<mat-grid-tile [colspan]="4"
       						 [rowspan]="1"
       						 class="checkbox-container third-checkbox">	
 			<div class="filter">
-				<mat-checkbox [(ngModel)]="sortByStockAmount" (click)="sortByStockAmountCmd()">Cantidad</mat-checkbox>
+				<mat-checkbox [(ngModel)]="sortByStockAmount" (change)="sortByStockAmountCmd()">Cantidad</mat-checkbox>
 			</div>
 		</mat-grid-tile>	
 	</mat-grid-list>
