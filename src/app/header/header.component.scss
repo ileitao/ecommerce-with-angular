@@ -19,9 +19,15 @@ mat-toolbar {
 	  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
 
 	  mat-toolbar-row {
-	  	padding: 0 16px 0 0;
+	  	padding: 0;
 			margin: 0 auto;
 			min-height: 64px;
+
+			.fill-space {
+			  // This fills the remaining space, by using flexbox.
+			  // Every toolbar row uses a flexbox row layout.
+			  flex: 1 1 auto;
+			}
 
 			&.mat-toolbar-row {
 				height: 64px;
@@ -35,9 +41,9 @@ mat-toolbar {
 		}
 	}
 
-	button[mat-button] {		
+	button[mat-button] {	
 		
-		&.hamburger.mat-button {
+		&.mat-button {
 			height: 100%;
 	    margin: 0 8px 0 0;
 	    padding: 0;
@@ -46,10 +52,10 @@ mat-toolbar {
 	    height: 100%;
 	    margin: 0 8px 0 0;
 	    padding: 0;
+		}
 
-	   /*&.hamburger.mat-button:hover {
-			background: $primary-dark;
-	   }*/
+		&.shopping-cart {
+			margin: 0;
 		}
 
     mat-icon {

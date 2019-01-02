@@ -1,11 +1,15 @@
 <div 
 	*ngIf="filteredProducts"
-	fxLayout="row wrap"
-	fxLayoutAlign="start start"
+	fxLayout="row" 
 	fxLayout.xs="column"
-	class="products">
-	<div *ngFor="let product of filteredProducts">
-		<mat-card class="card" fxFlex="33%">
+	fxLayout.sm="column"
+	fxLayoutWrap 
+	fxLayoutGap="0.5%"
+	fxLayoutAlign="center"
+	class="products-result-container">
+	<div *ngFor="let product of filteredProducts"
+				fxFlex="20%">
+		<mat-card class="card">
 		  <mat-card-header>
 		  </mat-card-header>
 		  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
