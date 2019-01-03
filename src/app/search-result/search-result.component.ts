@@ -56,6 +56,7 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
+    // Reset filters after a new search result
     this.filterService.resetFilters();
     if (id === 0) {
       this.data.getProducts().subscribe(data => {
@@ -77,10 +78,12 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   // FILTERS
   onFilterByAvailability(value: boolean) {
-    if (value) {
+    if (value === true) {
       this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
         return item.available !== false;
       })
+    } else if (value === false) {
+      this.filteredProducts = Object.assign([], this.products);
     }
   }
 
