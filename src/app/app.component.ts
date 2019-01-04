@@ -24,7 +24,13 @@ export class AppComponent {
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/menu-icon.svg'));
     iconRegistry.addSvgIcon(
       'shopping-cart',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/shopping-cart.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/shopping-cart-icon.svg'));
+    iconRegistry.addSvgIcon(
+      'add-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/add-icon.svg'));
+    iconRegistry.addSvgIcon(
+      'remove-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/remove-icon.svg'));
   }
 
   ngOnInit(): void {

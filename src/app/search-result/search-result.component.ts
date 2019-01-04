@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy }  from '@angular/core';
 import { ActivatedRoute }                from '@angular/router';
 import { DataService }                   from '../data.service';
 import { FilterService }                 from '../filter.service';
-import { Subscription }                  from 'rxjs';
+import { ShoppingCartService }           from '../shopping-cart.service';
 import { Product }                       from '../product';
+import { Subscription }                  from 'rxjs';
 
 @Component({
   selector: 'app-search-result',
@@ -21,14 +22,13 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
    * @type {Product[]}
    */
   filteredProducts: Product[] = [];
-
+  isAvailabilityValueFiltered: boolean = false;
   isMinValueFiltered: boolean = false;
-
   isMaxValueFiltered: boolean = false;
-
+  isOnStockAmountFiltered: boolean = false;
   subscription: Subscription;
 	
-  constructor(private route: ActivatedRoute, private data: DataService, private filterService: FilterService)  {
+  constructor(private route: ActivatedRoute, private data: DataService, private filterService: FilterService, private shoppingCartService: ShoppingCartService)  {
     // Filters
     this.subscription = filterService.availabilityFilter$.subscribe(value => {
       return this.onFilterByAvailability(value)
@@ -89,7 +89,6 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   onFilterByPriceMin(value: number) {
     if (value > 0) {
-      this.isMinValueFiltered = true;
       this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
         return Number(item.price.replace(/[^0-9.-]+/g,"")) > value;
       })
@@ -98,7 +97,6 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   onFilterByPriceMax(value: number) {
     if (value > 0) {      
-      this.isMinValueFiltered = true;
       this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
         return Number(item.price.replace(/[^0-9.-]+/g,"")) < value;
       })
@@ -141,6 +139,14 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
 
   private assignCopy(): void {
     this.filteredProducts = Object.assign([], this.products);
+  }
+
+  addToCart(product: Product) {
+    this.shoppingCartService.addShoppingItem(product);
+  }
+
+  removeFromCart(product: Product) {
+    this.shoppingCartService.removeShoppingItem(product);
   }
 
   ngOnDestroy() {
