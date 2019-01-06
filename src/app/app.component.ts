@@ -31,6 +31,9 @@ export class AppComponent {
     iconRegistry.addSvgIcon(
       'remove-icon',
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/remove-icon.svg'));
+    iconRegistry.addSvgIcon(
+      'remove-all-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/remove-all-icon.svg'));
   }
 
   ngOnInit(): void {

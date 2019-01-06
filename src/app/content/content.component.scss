@@ -10,7 +10,6 @@ mat-drawer {
 
 mat-drawer-content {
   top: 64px;
-  position: fixed;
   bottom: 0;
   left: 0;
   padding: 0;
@@ -27,7 +26,6 @@ mat-drawer-content {
 
 .mat-drawer-sidenav-content {
   display: flex;
-  height: 100%;
   align-items: center;
   justify-content: center;
 }
