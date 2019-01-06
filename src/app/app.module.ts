@@ -23,7 +23,8 @@ import { MatBadgeModule }          from '@angular/material/badge';
 // Services
 import { SidenavService }          from './sidenav.service';
 import { FilterService }           from './filter.service';
-import { ShoppingCartService }           from './shopping-cart.service'
+import { ShoppingCartService }     from './shopping-cart.service';
+import { LocalStorageService }     from './local-storage.service';
 
 import { AppRoutingModule }        from './app-routing.module';
 import { AppComponent } 		   from './app.component';
@@ -68,7 +69,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     MatTableModule,
     MatBadgeModule
   ],
-  providers: [SidenavService, FilterService, ShoppingCartService],
+  providers: [SidenavService, FilterService, ShoppingCartService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

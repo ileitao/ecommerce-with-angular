@@ -38,18 +38,20 @@ export class ShoppingCartComponent implements OnInit {
 
   private updateShoppingCart() {
   	let obj: Object =  this.shoppingCartService.getShoppingItems();
-
-  	console.log();
   	this.items = Object.keys(obj).map(function(key) {
 		  return obj[key];
 		});
   }
 
-  removeFromCart(element): void {
+  removeFromCart(element): void {  	
   	this.shoppingCartService.removeShoppingItem(element.item);
   }
 
   addToCart(element): void {
   	this.shoppingCartService.addShoppingItem(element.item);
+  }
+
+  buy(): void {
+
   }
 }

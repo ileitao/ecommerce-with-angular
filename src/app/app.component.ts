@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { DomSanitizer } 	      from '@angular/platform-browser';
 import { MatIconRegistry }      from '@angular/material';
 import { MatSidenav }           from '@angular/material';
+import { LocalStorageService }  from './local-storage.service';
+import { ShoppingCartService }  from './shopping-cart.service';
 import { SidenavService }       from './sidenav.service';
 
 @Component({
@@ -18,6 +20,8 @@ export class AppComponent {
 	
 	constructor(iconRegistry: MatIconRegistry, 
               sanitizer: DomSanitizer, 
+              private localStorageService: LocalStorageService,              
+              private shoppingCartService: ShoppingCartService,
               private sidenavService: SidenavService) {
     iconRegistry.addSvgIcon(
       'menu',
@@ -34,9 +38,24 @@ export class AppComponent {
     iconRegistry.addSvgIcon(
       'remove-all-icon',
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/remove-all-icon.svg'));
+    iconRegistry.addSvgIcon(
+      'attach-money-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/img/attach-money-icon.svg'));
   }
 
   ngOnInit(): void {
+    let storageName: string = 'shopping-cart';
+    if (this.localStorageService.storageAvailable('localStorage')) {
+      if(this.localStorageService.getStorage().getItem(storageName)) {
+        this.shoppingCartService.getFromLocalStorage(storageName);
+      } else {
+        console.log("NO HAY");
+      }
+    }
+    else {
+      console.log('No Local Storage');
+    }
+
     this.sidenavService.setSidenav(this.contentSidenav);
   }
 }

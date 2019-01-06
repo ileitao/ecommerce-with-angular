@@ -17,14 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   subscription: Subscription;  
 
   constructor(private sidenav: SidenavService, private shoppingCartService: ShoppingCartService) { 
-    this.subscription = shoppingCartService.addShoppingItem$.subscribe(item => {
-      return this.addItem(item);
-    });
-    this.subscription = shoppingCartService.removeShoppingItem$.subscribe(item => {
-      return this.removeItem(item);
-    });
     this.subscription = shoppingCartService.shoppingCartNumberUpdated$.subscribe(amount => {
-      return this.removeShoppingCartByNumber(amount);
+      return this.updateShoppingCartNumber(amount);
     });
   }
 
@@ -41,27 +35,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    * Sums +1 to shoppingItems 
    * @param {Product} item item added
    */
-  addItem(item: Product) {
-    this.shoppingItems++;
-  }
-
-  /**
-   * Subs -1 to shoppingItems if gt 1 and decrease quantity -1 in items object
-   * @param {Product} item item removed
-   */
-  removeItem(item: Product) {
-    if (this.shoppingItems <= 1) {
-      this.shoppingItems = null;
-    } else {
-      this.shoppingItems--;
-    }
-  }
-
-  /**
-   * Remove -amount from shoppingItems
-   * @param {number} amount [description]
-   */
-  removeShoppingCartByNumber(amount) {
+  updateShoppingCartNumber(amount) {
     this.shoppingItems = amount;
   }
 

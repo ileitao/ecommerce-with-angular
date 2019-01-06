@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Subject }    from 'rxjs';
-import { Product }		from './product';
+import { Injectable }         from '@angular/core';
+import { Subject }            from 'rxjs';
+import { Product }		        from './product';
+import { LocalStorageService} from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,7 @@ export class ShoppingCartService {
     this.shoppingItems++;
     this.shoppingCartUpdatedSrc.next(item);
     this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
+    this.saveToLocalStorage();
   }
 
   /**
@@ -70,6 +72,7 @@ export class ShoppingCartService {
       }
       this.shoppingCartUpdatedSrc.next(item);
       this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
+      this.saveToLocalStorage();
     }
   }
 
@@ -89,12 +92,34 @@ export class ShoppingCartService {
 
     this.shoppingCartUpdatedSrc.next(item);
     this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
+    this.saveToLocalStorage();
   }
 
   getShoppingItems(): Object {
     return this.items;
   }
 
-  constructor() { 
+  saveToLocalStorage() {
+    if (this.localStorageService.getStorage().getItem('shopping-cart')) {
+      this.clearLocalStorage();
+    }
+
+    this.localStorageService.saveToStorage('shopping-cart', this.items);
+  }
+
+  getFromLocalStorage(name: string) {
+    this.items = this.localStorageService.getFromLocalStorage(name);
+    for (var key in this.items) {
+      this.shoppingItems += this.items[key].quantity;
+    }
+    
+    this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
+  }
+
+  clearLocalStorage() {
+    this.localStorageService.clearStorage();
+  }
+
+  constructor(private localStorageService: LocalStorageService) { 
   }
 }

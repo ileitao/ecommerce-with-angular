@@ -1,5 +1,6 @@
 <div *ngIf="items">
 	<div *ngIf="items.length > 0">
+		<h3>Carrito de compras</h3>
 		<table mat-table [dataSource]="items" class="mat-elevation-z8">
 			<!-- Quantity Column -->
 		  <ng-container matColumnDef="quantity">
@@ -41,9 +42,20 @@
 		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 		</table>
+		<div class="proceed-buy-container">
+			<div>
+				<p>{{totalPrice}}</p>
+			</div>
+			<div>
+				<p>Proceder con la compra</p>
+				<button mat-button title="Proceder con la compra" (click)="buy()">
+	    		<mat-icon svgIcon="attach-money-icon"></mat-icon>
+	    	</button>
+	    </div>
+		</div>
 	</div>
 	<div *ngIf="items.length === 0">
-		<p>No Hay Items</p>
+		<h3>No se han agregado items al carrito aún</h3>
 	</div>
 </div>
 
