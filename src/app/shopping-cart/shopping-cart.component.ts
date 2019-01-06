@@ -32,14 +32,24 @@ export class ShoppingCartComponent implements OnInit {
   	return Number(element.item.price.replace(/[^0-9.-]+/g,"")) * element.quantity;
   }
 
-  removeAllShoppingItemByItem(element) {
+  removeAllShoppingItemByItem(element): void {
   	this.shoppingCartService.removeAllShoppingItemByItem(element.item)
   }
 
   private updateShoppingCart() {
   	let obj: Object =  this.shoppingCartService.getShoppingItems();
+
+  	console.log();
   	this.items = Object.keys(obj).map(function(key) {
 		  return obj[key];
 		});
+  }
+
+  removeFromCart(element): void {
+  	this.shoppingCartService.removeShoppingItem(element.item);
+  }
+
+  addToCart(element): void {
+  	this.shoppingCartService.addShoppingItem(element.item);
   }
 }

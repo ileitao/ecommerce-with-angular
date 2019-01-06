@@ -4,7 +4,16 @@
 			<!-- Quantity Column -->
 		  <ng-container matColumnDef="quantity">
 		    <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-		    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+		    <td mat-cell *matCellDef="let element"> 
+ 				  <button mat-button title="Sumar uno" (click)="addToCart(element)">
+				  	<mat-icon svgIcon="add-icon"></mat-icon>
+				  </button>
+		    	{{element.quantity}}
+		    	<button mat-button title="Quitar uno" (click)="removeFromCart(element)">
+			    	<mat-icon svgIcon="remove-icon"></mat-icon>
+			    </button>
+		  </td>
+
 		  </ng-container>
 
 		  <!-- Name Column -->

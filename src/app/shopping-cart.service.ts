@@ -44,6 +44,8 @@ export class ShoppingCartService {
       this.items[item.id] = {"quantity": 1, item};
     }
     this.shoppingItems++;
+    this.shoppingCartUpdatedSrc.next(item);
+    this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
   }
 
   /**
@@ -66,6 +68,8 @@ export class ShoppingCartService {
           delete this.items[item.id];
         }
       }
+      this.shoppingCartUpdatedSrc.next(item);
+      this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
     }
   }
 

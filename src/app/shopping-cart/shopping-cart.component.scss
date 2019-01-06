@@ -5,3 +5,13 @@
 table {
 	width: 100%;
 }
+
+th,
+td {
+	text-align: center!important; 
+  vertical-align: middle!important;
+}
+
+/deep/ .mat-column-quantity {
+	width: 18%;
+}
