@@ -1,3 +1,13 @@
+<div *ngIf="isSearchMenuAvailable">
+	<mat-form-field appearance="fill">
+    <mat-label>Búsqueda por nombre</mat-label>
+    <input #inputSearch 
+    			 matInput 
+    			 type="string" 
+    			 maxlength="30" 
+    			 (keyup)="onFilterByName(inputSearch.value)">
+  </mat-form-field>
+</div>
 <div 
 	*ngIf="filteredProducts"
 	fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start"
