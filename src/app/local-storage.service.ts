@@ -30,6 +30,8 @@ export class LocalStorageService {
 			  console.error(ex);
 			}
   	}
+  	
+  	return {};
   }
 
   storageAvailable(type) {

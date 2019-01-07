@@ -14,11 +14,36 @@ table {
 	/deep/ .mat-column-quantity {
 		width: 18%;
 	}
+
+	/deep/ .mat-column-name {
+		width: 25%;
+	}
+
+	/deep/ .mat-column-remove-all {
+		width: 6%;
+	}
+
+	/deep/ .mat-column-price {
+		width: 25%;
+	}
 }
 
-div.proceed-buy-container {
+div.buy-summary {
+	
 	margin: 30px 0 0 0;
-  display: flex;
-  float: right;
+	float: right;
+	
+	div.proceed-buy-container {
+		width: 100%;
+	  display: flex;
+
+	  p.final-price {
+	    padding: 0 0 0 90px;
+	  }
+
+	  p > span.price {
+	  	font-weight: 600;
+	  }
+	}
 }
 

@@ -22,7 +22,7 @@ export class ShoppingCartService {
   private addShoppingItemSrc = new Subject<Product>();
   private removeShoppingItemSrc = new Subject<Product>();
   private shoppingCartUpdatedSrc = new Subject<Product>();
-  private shoppingCartNumberUpdatedSrc = new Subject<Number>();
+  private shoppingCartNumberUpdatedSrc = new Subject<number>();
 
   // Observable boolean streams
   addShoppingItem$ = this.addShoppingItemSrc.asObservable();
@@ -93,6 +93,12 @@ export class ShoppingCartService {
     this.shoppingCartUpdatedSrc.next(item);
     this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
     this.saveToLocalStorage();
+  }
+
+  cleanShoppingCart(): void {
+    this.items = {};
+    this.shoppingItems = null;
+    this.shoppingCartNumberUpdatedSrc.next(this.shoppingItems);
   }
 
   getShoppingItems(): Object {

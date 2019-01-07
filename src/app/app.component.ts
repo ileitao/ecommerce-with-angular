@@ -46,14 +46,9 @@ export class AppComponent {
   ngOnInit(): void {
     let storageName: string = 'shopping-cart';
     if (this.localStorageService.storageAvailable('localStorage')) {
-      if(this.localStorageService.getStorage().getItem(storageName)) {
+      if (this.localStorageService.getStorage().getItem(storageName)) {
         this.shoppingCartService.getFromLocalStorage(storageName);
-      } else {
-        console.log("NO HAY");
       }
-    }
-    else {
-      console.log('No Local Storage');
     }
 
     this.sidenavService.setSidenav(this.contentSidenav);

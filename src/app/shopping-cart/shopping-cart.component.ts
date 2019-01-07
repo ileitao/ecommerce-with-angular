@@ -51,7 +51,13 @@ export class ShoppingCartComponent implements OnInit {
   	this.shoppingCartService.addShoppingItem(element.item);
   }
 
-  buy(): void {
+  getFinalPrice(): number {
+  	let obj: Object =  this.shoppingCartService.getShoppingItems();
+  	let price = 0;
+  	Object.keys(obj).map(function(key) {
+		  return price += Number(obj[key].item.price.replace(/[^0-9.-]+/g,"")) * obj[key].quantity;
+		});
 
+		return price;
   }
 }

@@ -42,17 +42,17 @@
 		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 		</table>
-		<div class="proceed-buy-container">
-			<div>
-				<p>{{totalPrice}}</p>
-			</div>
-			<div>
-				<p>Proceder con la compra</p>
-				<button mat-button title="Proceder con la compra" (click)="buy()">
+		<div class="buy-summary">
+			<div class="proceed-buy-container">
+				<p class="final-price">Precio Final: <span class="price">${{getFinalPrice()}}</span></p>
+			</div>	
+			<div class="proceed-buy-container">
+				<p>Proceder con la compra</p>	
+				<button mat-button title="Proceder con la compra" routerLink="/transaction-complete">
 	    		<mat-icon svgIcon="attach-money-icon"></mat-icon>
 	    	</button>
 	    </div>
-		</div>
+	  </div>
 	</div>
 	<div *ngIf="items.length === 0">
 		<h3>No se han agregado items al carrito aún</h3>

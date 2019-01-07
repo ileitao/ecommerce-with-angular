@@ -3,6 +3,7 @@ import { SidenavService }                  from '../sidenav.service';
 import { ShoppingCartService }             from '../shopping-cart.service';
 import { Subscription }                    from 'rxjs';
 import { Product }                         from '../product';
+import { ChangeDetectorRef }               from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   shoppingItems: number = null;
   subscription: Subscription;  
 
-  constructor(private sidenav: SidenavService, private shoppingCartService: ShoppingCartService) { 
+  constructor(private sidenav: SidenavService, private shoppingCartService: ShoppingCartService, private cdRef:ChangeDetectorRef) { 
     this.subscription = shoppingCartService.shoppingCartNumberUpdated$.subscribe(amount => {
       return this.updateShoppingCartNumber(amount);
     });
@@ -32,11 +33,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Sums +1 to shoppingItems 
+   * Update shopping cart value
    * @param {Product} item item added
    */
   updateShoppingCartNumber(amount) {
     this.shoppingItems = amount;
+    this.cdRef.detectChanges();
   }
 
   ngOnDestroy() {
