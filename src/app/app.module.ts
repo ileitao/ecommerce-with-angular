@@ -29,7 +29,6 @@ import { LocalStorageService }          from './local-storage.service';
 import { AppRoutingModule }             from './app-routing.module';
 import { AppComponent } 		        from './app.component';
 import { MenuComponent } 		        from './menu/menu.component';
-import { ProductComponent }             from './product/product.component';
 import { SearchResultComponent }        from './search-result/search-result.component';
 import { HeaderComponent }              from './header/header.component';
 import { ContentComponent }             from './content/content.component';
@@ -41,7 +40,6 @@ import { TransactionCompleteComponent } from './transaction-complete/transaction
   declarations: [
     AppComponent,
     MenuComponent,
-    ProductComponent,
     SearchResultComponent,
     HeaderComponent,
     ContentComponent,

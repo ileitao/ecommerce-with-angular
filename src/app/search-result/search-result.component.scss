@@ -10,6 +10,7 @@ div.search-item {
   	width: 100%;
   }
 }
+
 .products-result-container {
   min-height: 100%;
   margin: 0 auto;
@@ -22,6 +23,19 @@ div.search-item {
     .card {
 		  width: 60%;
 		  margin: 0 auto;
+		}
+
+		.product-price {
+			margin-bottom: 16px;
+		}
+  }
+
+  mat-card-actions.card-actions {
+  	margin: 0 auto;
+		
+		button {
+			margin: 0 auto;
+    	width: 50%;
 		}
   }
 }

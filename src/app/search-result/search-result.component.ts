@@ -98,14 +98,14 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
   }
 
   private filterOthersThanAvailability() {
-    if (this.currentMax > 0) {
-      this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
-        return Number(item.price.replace(/[^0-9.-]+/g,"")) < this.currentMax;
-      })
-    }
     if (this.currentMin > 0) {
       this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
         return Number(item.price.replace(/[^0-9.-]+/g,"")) > this.currentMin;
+      })
+    }
+    if (this.currentMax > 0) {
+      this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
+        return Number(item.price.replace(/[^0-9.-]+/g,"")) < this.currentMax;
       })
     }
     if (this.currentStock > 0) {
@@ -180,7 +180,7 @@ export class SearchResultComponent implements OnInit, OnDestroy  {
   onFilterByStockAmount(value: number) {
     this.currentStock = value;
     if (value > 0) {
-      this.filteredProducts = Object.assign([], this.filteredProducts).filter(item => {
+      this.filteredProducts = Object.assign([], this.products).filter(item => {
         return item.quantity > value;
       })
     } else {
