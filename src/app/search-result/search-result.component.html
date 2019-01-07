@@ -1,4 +1,4 @@
-<div *ngIf="isSearchMenuAvailable">
+<div *ngIf="isSearchMenuAvailable" class="search-item">
 	<mat-form-field appearance="fill">
     <mat-label>Búsqueda por nombre</mat-label>
     <input #inputSearch 
@@ -10,10 +10,12 @@
 </div>
 <div 
 	*ngIf="filteredProducts"
-	fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start"
+	fxLayout="row wrap" 
+	fxLayoutAlign="flex-start"
 	class="products-result-container">
 	<div *ngFor="let product of filteredProducts"
-				fxFlex="0 1 calc(33.3% - 32px)">
+				fxFlex="0 1 calc(33.3%)"
+				class="card-container">
 		<mat-card class="card">
 		  <mat-card-header>
 		  </mat-card-header>

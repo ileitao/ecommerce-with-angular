@@ -1,12 +1,32 @@
-.products-result-container {
-  min-height: 100%;
-  width: 100%;
+/deep/ app-search-result {
+	width: 100%;
 }
 
-.card {
-  width: 80%;
-  margin-bottom: 2%;
+div.search-item {
+	margin: 0 auto 30px auto;
+  width: 50%;
+
+  /deep/ mat-form-field {
+  	width: 100%;
+  }
 }
+.products-result-container {
+  min-height: 100%;
+  margin: 0 auto;
+  width: 50%;
+
+  div.card-container {
+  	margin: 12px auto 12px auto;
+    width: 100%;
+
+    .card {
+		  width: 60%;
+		  margin: 0 auto;
+		}
+  }
+}
+
+
 /*/deep/ app-search-result {
 	width: 60%;
 }
